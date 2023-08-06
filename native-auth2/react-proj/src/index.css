@@ -1,0 +1,8 @@
+:root {
+    --background: #19191c;
+}
+
+body {
+    background: var(--background);
+    -webkit-font-smoothing: antialiased;
+}
