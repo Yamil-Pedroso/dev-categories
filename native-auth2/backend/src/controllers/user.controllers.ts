@@ -1,29 +1,41 @@
 import { Request, Response, NextFunction } from 'express';
 import User from '../models/user';
+import { v2 as cloudinary } from 'cloudinary';
 
 
 export const registerUser = async (req: Request, res: Response, next: NextFunction) => {
-    const { name, email, password, profession } = req.body;
-
     try {
+        const { name, email, password } = req.body;
+        const result = await cloudinary.uploader.upload("https://res.cloudinary.com/dcl8dgtuk/image/upload/v1660894750/avatars/dog-girl.jpg", {
+            folder: 'avatars',
+            width: 150,
+            crop: 'scale',
+        });
+
+
         const user = await User.create({
             name,
             email,
             password,
+            avatar: {
+                public_id: result.public_id,
+                url: result.secure_url,
+            },
         });
 
         res.status(201).json({
+            _id: user._id,
             name: user.name,
             email: user.email,
-            password: user.password,
             avatar: user.avatar,
         });
+
     } catch (error: any) {
-        res.status(400);
+        res.status(400).json({ error: error.message });
         next(error);
     }
 }
-    
+
 export const loginUser = async (req: Request, res: Response, next: NextFunction) => {
     const { email, password } = req.body;
 
@@ -62,7 +74,7 @@ export const updateUser = async (req: Request, res: Response, next: NextFunction
             avatar: req.body.avatar,
         };
 
-        const user = await User.findByIdAndUpdate(req.params.id, newUserData, { 
+        const user = await User.findByIdAndUpdate(req.params.id, newUserData, {
             new: true,
             runValidators: true,
             useFindAndModify: false,

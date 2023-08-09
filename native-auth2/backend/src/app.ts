@@ -4,6 +4,9 @@ import cors from 'cors';
 import colors from 'colors';
 import notenv from 'dotenv';
 import db from './config/db';
+import { v2 as cloudinary } from 'cloudinary';
+import fileUpload from 'express-fileupload';
+import bodyParser from 'body-parser';
 
 notenv.config();
 
@@ -12,10 +15,18 @@ const app: Express = express();
 const corsOptions: cors.CorsOptions = {
     origin: "*",
 };
-
+app.use(fileUpload());
+app.use(express.json());
+app.use(bodyParser.json());
 app.use(cors(corsOptions));
 
 db();
+
+cloudinary.config({
+    cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+    api_key: process.env.CLOUDINARY_API_KEY,
+    api_secret:process.env.CLOUDINARY_API_SECRET,
+});
 
 colors.enable();
 

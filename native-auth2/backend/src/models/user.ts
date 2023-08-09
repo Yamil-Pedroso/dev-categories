@@ -5,7 +5,10 @@ interface IUser {
     email: string;
     password: string;
     profession: string;
-    avatar: string;
+    avatar?: {
+        public_id: string,
+        url: string
+    } | null | undefined,
 }
 
 const userSchema = new Schema<IUser>({
@@ -27,8 +30,14 @@ const userSchema = new Schema<IUser>({
         required: false,
     },
     avatar: {
-        type: String,
-        required: false,
+        public_id: {
+            type: String,
+            required: true,
+        },
+        url: {
+            type: String,
+            required: true,
+        },
     },
 }, {
     timestamps: true,

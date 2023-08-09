@@ -15,13 +15,13 @@ export const Container = styled.div`
 `;
 
 export const ImgWrapper = styled.div`
-    width: 8rem;
-    height: 8rem;
+    width: 10rem;
+    height: 10rem;
     border-radius: 50%;
     background-color: #131314;
     border: 2px solid #88419c;
-    top: -3.5rem;
-    left: 22.5rem;
+    top: -5.5rem;
+    left: 21rem;
     position: absolute;
 
     img {
@@ -42,11 +42,12 @@ export const UserInfoWrapper = styled.div`
     margin-top: 2rem;
     line-height: 0rem;
     font-family: 'Roboto', sans-serif;
+    position: relative;
 `;
 
 export const IconWrapper = styled.div`
   display: flex;
-  margin-top: 4rem;
+  margin-top: 8rem;
   color: #88419c;
 
     div {
@@ -82,4 +83,31 @@ export const EditProfileText = styled.a`
     cursor: pointer;
 `;
 
+export const UserIconProperties = styled.h2`
+   top: 1.5rem;
+   position: absolute;
+`;
 
+export const MyIconsProfileWrapper = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+
+    &:hover {
+        @keyframes jumping {
+            0% {
+                transform: translateY(0);
+                color: #88419c;
+            }
+
+            to {
+                transform: translateY(-1rem);
+                color: #a6a6a6;
+            }
+        }
+
+        animation: jumping .5s ease-in-out infinite alternate;
+    }
+`;

@@ -39,4 +39,3 @@ export const logoutUser = async (id: string) => {
         console.log(error);
     }
 }
- 

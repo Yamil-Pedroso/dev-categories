@@ -14,6 +14,22 @@ export const UlList = styled.ul`
     margin-right: 2rem;
 `
 
+export const WelcomeWrapper = styled.div`
+`;
+
+export const WelcomeText = styled.p`
+    color: #cdcdcd;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem;
+
+    span {
+      color: #88419c;
+      font-family: 'Roboto', sans-serif;
+        font-weight: bold;
+        font-size: 1.2rem;
+    }
+`;
+
 export const LiList = styled.li`
     margin: 0 10px;
 
@@ -22,7 +38,7 @@ export const LiList = styled.li`
         color: #88419c;
         font-size: 1.2rem;
         font-weight: bold;
-        font-family: 'Roboto', sans-serif; 
+        font-family: 'Roboto', sans-serif;
 
         &:hover {
             color: #bf3ce4;
