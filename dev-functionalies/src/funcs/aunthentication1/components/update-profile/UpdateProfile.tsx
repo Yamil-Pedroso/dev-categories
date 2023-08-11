@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react'
-import { Container, HeaderTitle, InputWrapper, Input, FigureWrapper, Figure, UpdateBtnWrapper, UpdateBtn, CustomFileInput } from './styles'
+import { Container, HeaderTitle, InputWrapper, Input, FigureWrapper, Figure, UpdateBtnWrapper, UpdateBtn, CustomFileInput, UpdateProfileWrapper, UpdateProfileIcon } from './styles'
 import { UseAuth } from '../../hook/AuthContext'
 
 const UpdateProfile = () => {
@@ -22,6 +22,9 @@ const UpdateProfile = () => {
 
   return (
     <Container>
+       <UpdateProfileWrapper>
+          <UpdateProfileIcon />
+        </UpdateProfileWrapper>
         <HeaderTitle><span>Update</span> Profile</HeaderTitle>
         <form style={{}}>
             <InputWrapper>

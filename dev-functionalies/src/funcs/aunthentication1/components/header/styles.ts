@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const Container = styled.div`
   display: flex;
   justify-content: center;
-  margin-top: 5rem;
 `;
 
 export const UlList = styled.ul`
@@ -55,6 +54,13 @@ export const UserProperWrapper = styled.div`
 
     div {
         margin: 0 10px;
+
+        p {
+            span {
+                color: #88419c;
+                font-weight: bold;
+            }
+        }
     }
 `;
 

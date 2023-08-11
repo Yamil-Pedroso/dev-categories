@@ -1,8 +1,9 @@
-import Cards from "../cards/Cards"
+import CardsFunc from "../cards/CardsFunc"
+
 const Home = () => {
   return (
     <>
-        <Cards />
+      <CardsFunc />
     </>
   )
 }

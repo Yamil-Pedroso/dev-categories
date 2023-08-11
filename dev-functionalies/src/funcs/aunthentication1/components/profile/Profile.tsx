@@ -1,13 +1,50 @@
+import React, { useState } from 'react'
 import { UseAuth } from '../../hook/AuthContext'
 import { Link } from 'react-router-dom'
-import { Container, ImgWrapper, IconWrapper, UserInfoWrapper, SmsWrapper, EditProfileWrapper } from './styles'
+import { Container, ImgWrapper, IconWrapper, UserInfoWrapper, SmsWrapper, EditProfileWrapper, MyIconsProfileWrapper, UserIconProperties } from './styles'
 import { AiOutlineUser, AiOutlineMail, AiOutlineCalendar, AiOutlineLock } from 'react-icons/ai'
 import { BiMap } from 'react-icons/bi'
 import { BsTelephoneForward } from 'react-icons/bs'
 
+const myIcons = [
+  <AiOutlineUser size={32} />,
+  <AiOutlineMail size={32} />,
+  <AiOutlineCalendar size={32} />,
+  <BiMap size={32} />,
+  <BsTelephoneForward size={26} />,
+  <AiOutlineLock size={32} />
+]
+
 
 const Profile = () => { 
-  const { isLogged, user } = UseAuth() as any
+  const [activeIconIndex, setActiveIconIndex] = useState<number | null>(null) 
+  const { isLogged, user } = UseAuth()
+
+  const handleIconHover = (index: number) => {
+    setActiveIconIndex(index)
+  }
+
+  const handleIconLeave = () => {
+    setActiveIconIndex(null)
+  }
+
+  const userIconProperties = {
+    user: user.name,
+    email: user.email,
+    calendar: "Calendar",
+    map: "Address",
+    telephone: "Phone",
+    lock: "ooooooo"
+  }
+
+  const handleIcons = () => {
+    if(activeIconIndex !== null) {
+      const iconKey = Object.keys(userIconProperties)[activeIconIndex]
+      return userIconProperties[iconKey]
+    }
+    return null
+  }
+
   return (
     <Container>
       {isLogged ? (
@@ -18,38 +55,38 @@ const Profile = () => {
            <EditProfileWrapper>
             <Link
               to="/me/update"
-              style={{ textDecoration: 'none', color: '#88419c', marginTop: '1rem', fontFamily: 'Roboto, sans-serif' }}
+              style={{ textDecoration: 'none', color: '#88419c', marginTop: '1rem', fontFamily: 'Roboto, sans-serif', fontSize: '.9rem' }}
             >Edit</Link>
 
-            <Link to="/update-password" style={{ textDecoration: 'none', color: '#88419c', marginTop: '1rem', fontFamily: 'Roboto, sans-serif' }}>
+            <Link to="/update-password" style={{ textDecoration: 'none', color: '#88419c', marginTop: '1rem', fontFamily: 'Roboto, sans-serif', fontSize: '.9rem' }}>
               Change Password 
             </Link>
           </EditProfileWrapper>
           <UserInfoWrapper>
-            <h1>{user.name}</h1>
-            <h3>{user.email}</h3>
-            <p>{user.profession}</p>
+            {
+              handleIcons() ? (
+                <UserIconProperties>
+                  {handleIcons()}
+                </UserIconProperties>
+              ) : (
+                <h2 style={{ position: "absolute", top: "5.7rem"}}>
+                  {user.name}
+                </h2>
+           )}
           </UserInfoWrapper>
 
           <IconWrapper>
-            <div>
-              <AiOutlineUser size={48} />
-            </div>
-            <div>
-              <AiOutlineMail size={48} />
-            </div>
-            <div>
-              <AiOutlineCalendar size={48} />
-            </div>
-            <div>
-              <BiMap size={48} />
-            </div>
-            <div>
-              <BsTelephoneForward size={43} />
-            </div>
-            <div>
-              <AiOutlineLock size={48} />
-            </div>
+            {myIcons.map((icon, index) => {
+              return (
+              <MyIconsProfileWrapper 
+                key={index}
+                onMouseEnter={() => handleIconHover(index)}
+                onMouseLeave={handleIconLeave}
+              >
+                {icon}
+              </MyIconsProfileWrapper>
+              )
+            })}
           </IconWrapper>
         </div>
       ) : (

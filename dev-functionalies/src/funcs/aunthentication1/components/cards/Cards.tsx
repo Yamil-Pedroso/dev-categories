@@ -68,7 +68,7 @@ const CardsImgMap = [
 const Cards = () => {
   const [activeCard, setActiveCard] = useState(null);
 
-  const handleCardHover = (index: any) => {
+  const handleCardHover = (index: number) => {
     setActiveCard(index);
   };
 
@@ -88,13 +88,14 @@ const Cards = () => {
 
   return (
     <Container>
+      <h2>Choose your Potions</h2>
       <CardWrapper>
         {CardsImgMap.map((image, index) => (
           <Card key={index} onClick={() => handleCardHover(index)} 
             onMouseEnter={() => handleCardHover(index)}
             onMouseLeave={handleCardLeave}
             >
-            <img className='bottle__img' src={image.img} alt={`bottle${index + 1}`} width={80} />
+            <img className='bottle__img' src={image.img} alt={`bottle${index + 1}`} width={32} />
             {activeCard === index && <CardImgDescription>
                 {image.description}
             </CardImgDescription>}

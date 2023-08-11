@@ -39,7 +39,7 @@ const RegisterForm = () => {
                 </RegisterBtn>
 
                <LoginBtn>
-                  <Link to="/login">Login</Link>
+                  <p>Login</p>
                </LoginBtn>
              </LoginRegisterWrapper>
         </form>
