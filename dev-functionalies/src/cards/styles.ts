@@ -1,20 +1,22 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
+   margin-top: 3rem;
 `;
 
 export const HeaderTitle = styled.h1`
    background: -webkit-linear-gradient( 92.1deg,  rgba(140,35,140,1) 0.1%, rgba(255,0,0,1) 100.2% );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-`;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   text-align: center;
+   `;
 
 export const CardWrapper= styled.div`
   display: flex;
   justify-content: center;
   flex-direction: row;
-  `;
+   margin-top: 3rem;
+`;
 
 export const Card = styled.div`
   width: 60rem;

@@ -13,6 +13,7 @@ import UpdateProfile from '../funcs/aunthentication1/components/update-profile/U
 import InfiniteScroll from '../funcs/queries-strategy/infinite-scroll/InfiniteScroll'
 import BirthdayReminder from '../funcs/birthday-reminder/BirthdayReminder'
 import Reviews from '../funcs/reviews/Reviews'
+import DarkMode from '../funcs/dark-mode/DarkMode'
 
 
 const myMenuObj = [
@@ -135,8 +136,18 @@ const CardsFunc = () => {
               <Reviews />
             </Card>
 
+            <Card style={{ overflow: "scroll", transition: "all 0.3s linear"}}>
+              <DarkMode />
+            </Card>
+        </CardWrapper>
+
+         <CardWrapper>
             <Card>
-              Card 4
+               Drag adn Drop
+            </Card>
+
+            <Card>
+                Satisfaying Percentage
             </Card>
         </CardWrapper>
         <InfiniteScroll />
