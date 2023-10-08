@@ -1,10 +1,10 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { Container, HeaderTitle, InputWrapper, Input, FigureWrapper, Figure, UpdateBtnWrapper, UpdateBtn, CustomFileInput, UpdateProfileWrapper, UpdateProfileIcon } from './styles'
 import { UseAuth } from '../../hook/AuthContext'
 
 const UpdateProfile = () => {
-    const { user } = UseAuth() as any
-    const [avatarIcon, setAvatarIcon] = useState('' as any)
+    const { user } = UseAuth()
+    const [avatarIcon, setAvatarIcon] = useState('')
     const [avatarPreview, setAvatarPreview] = useState(user.avatar)
    
 
@@ -13,7 +13,7 @@ const UpdateProfile = () => {
         reader.onload = () => {
             if (reader.readyState === 2) {
                 setAvatarPreview(reader.result as string)
-                setAvatarIcon(reader.result as any)
+                setAvatarIcon(reader.result as string)
             }
         }
         reader.readAsDataURL(e.target.files![0])
@@ -35,6 +35,12 @@ const UpdateProfile = () => {
             </InputWrapper>
             <FigureWrapper>
                 <Figure src={avatarPreview} alt="Avatar Preview" />
+                {avatarIcon && (
+                    <CustomFileInput>
+                        <img src={avatarIcon} alt="Avatar Icon" />
+                    </CustomFileInput>
+                )
+                      }
             </FigureWrapper>
             <InputWrapper>
                 <Input 

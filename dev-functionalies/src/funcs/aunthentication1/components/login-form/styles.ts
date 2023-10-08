@@ -6,11 +6,11 @@ export const Container = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 1.25rem;
     background-color: #131314;
     border-radius: 5px;
     width: 18rem;
-    height: 18rem;
+    height: 20rem;
+    padding-bottom: 2.2rem;
     margin: 5rem auto;
     position: relative;
 `;
@@ -101,7 +101,7 @@ export const RegisterBtn = styled.a`
 `;
 
 export const ForgotPasswordText = styled.div`
-    margin-top: .2rem;
+    margin-top: .5rem;
     margin-right: 6.5rem;
    p {
     text-decoration: none;

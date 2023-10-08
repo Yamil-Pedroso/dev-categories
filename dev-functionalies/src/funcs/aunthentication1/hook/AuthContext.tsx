@@ -4,10 +4,13 @@ import { userRegister, userLogin, logoutUser } from './userFetch';
 interface IUser {
   name: string;
   email: string;
+  password: string;
+  _id: string;
+  avatar: string;
 }
 
 interface IAuthContext {
-    user: string | object;
+    user?: any;
     isLogged: boolean;
     isRegister: boolean;
     register: (name: string, email: string, password: string) => void;
@@ -21,13 +24,13 @@ const AuthContext = createContext<IAuthContext>({
   isRegister: false,
   register: () => {},
   login: () => {},
-  logout: () => {},
+  logout: () => {}
 });
 
 export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) => {
     const [isLogged, setIsLogged] = useState(false);
     const [isRegister, setIsRegister] = useState(false);
-    const [user, setUser] = useState<IUser | object>({});
+    const [user, setUser] = useState<IUser | string | object>({});
 
     useEffect(() => {
         const userId = localStorage.getItem('userId');
@@ -37,7 +40,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
 
         const storagedUser = localStorage.getItem('user');
         if (storagedUser) {
-            setUser(JSON.parse(storagedUser));
+            setUser(JSON.parse(storagedUser) as IUser);
         } else {
             setUser({});
         }
@@ -46,7 +49,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
 
     const register = async (name: string, email: string, password: string) => {
       try {
-        const data = await userRegister(name, email, password);
+        const data = await userRegister(name, email, password) as IUser;
         localStorage.setItem('userId', data._id);
         setIsRegister(true);
         setUser(data);
@@ -57,7 +60,7 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
 
     const login = async (name: string, email: string, password: string) => {
     try {
-      const data = await userLogin(name, email, password);
+      const data = await userLogin(name, email, password) as IUser;
       console.log(typeof data);
       localStorage.setItem('userId', data._id);
       setIsLogged(true);
@@ -67,13 +70,16 @@ export const AuthProvider: React.FC<React.PropsWithChildren> = ({ children }) =>
     }
   };
 
-  const logout = async (id: string) => {
+  const logout = async () => {
     try {
-      await logoutUser(id);
-      localStorage.removeItem('userId');
-      localStorage.removeItem('user');
-      setIsLogged(false);
-      setUser({});
+      const userId = localStorage.getItem('userId');
+      if (userId) {
+        await logoutUser(userId); // Call the logoutUser function with the userID
+        localStorage.removeItem('userId');
+        localStorage.removeItem('user');
+        setIsLogged(false);
+        setUser({});
+      }
     } catch (error) {
       console.log(error);
     }

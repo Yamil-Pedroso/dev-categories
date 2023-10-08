@@ -10,7 +10,7 @@ export const Container = styled.div`
     background-color: #131314;
     border-radius: 5px;
     width: 18rem;
-    height: 12rem;
+    height: 15.5rem;
     margin: 5rem auto;
     position: relative;
 `;

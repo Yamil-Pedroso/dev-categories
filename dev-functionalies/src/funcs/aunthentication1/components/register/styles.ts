@@ -21,7 +21,7 @@ export const Title = styled.h1`
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     text-transform: uppercase;
-    margin-top: 0rem;
+    margin-top: 1rem;
     margin-bottom: 1rem;
 
     span {

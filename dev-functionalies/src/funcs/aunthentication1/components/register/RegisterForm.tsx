@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Container, InputWrapper, Input, LoginBtn, RegisterBtn, LoginRegisterWrapper, RegisterWrapper, RegisterIcon, Title  } from './styles'
 import { UseAuth } from '../../hook/AuthContext'
 

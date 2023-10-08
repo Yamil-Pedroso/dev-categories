@@ -1,0 +1,15 @@
+.blueDiamant {
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    filter: drop-shadow(0 0 .7rem rgba(0, 179, 255, 0.6));
+}
+
+.smerald {
+    transition: transform 0.5s ease-in-out, filter 0.5s ease-in-out;
+    filter: drop-shadow(0 0 .7rem green);
+}
+
+
+.fadeOut {
+    transition: filter 0.5s ease-in-out;
+    filter: drop-shadow(0 0 0 rgba(0, 179, 255, 0));
+}

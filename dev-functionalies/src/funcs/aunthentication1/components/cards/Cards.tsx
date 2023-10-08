@@ -66,7 +66,7 @@ const CardsImgMap = [
 ]
 
 const Cards = () => {
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   const handleCardHover = (index: number) => {
     setActiveCard(index);

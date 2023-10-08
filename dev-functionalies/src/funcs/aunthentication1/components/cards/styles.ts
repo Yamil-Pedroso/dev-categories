@@ -3,6 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.div`
     margin-top: 2rem;
     
+    h2 {
+        text-align: center;
+        color: #7b42dd;
+    }
 `;
 
 export const CardWrapper = styled.div`
@@ -11,7 +15,7 @@ export const CardWrapper = styled.div`
     justify-content: center;
     align-items: center;
     width: 35rem;
-    margin: 0 auto;
+    margin: 1.5rem auto;
 `;
 
 export const Card = styled.div`
@@ -19,8 +23,8 @@ export const Card = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 5rem;
-    height: 5rem;
+    width: 7rem;
+    height: 7rem;
     margin: 10px;
     border: 1px solid #ccc;
     color: #fff;
@@ -28,7 +32,7 @@ export const Card = styled.div`
     font-family: 'Roboto', sans-serif;
     border-radius: 5px;
     background-color: #19191c;
-    box-shadow: 0 0 10px  rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 10px  rgba(37, 69, 255, 0.2);
     cursor: pointer;
     transition: all 0.3s ease-in-out;
 

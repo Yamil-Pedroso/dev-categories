@@ -26,9 +26,9 @@ export const ListContainer = styled.div`
 export const CardWrapper = styled.div`
 width: 20rem;
 height: 20rem;
-background-color: #ab74ad;
+background-color: #131414;
 border-radius: 10px;
-box-shadow: 0 0 10px rgba(0,0,0,0.2);
+box-shadow: 0 0 2rem rgba(51, 122, 69, 0.2);
 margin: 10px;
 padding: 10px;
 display: flex;

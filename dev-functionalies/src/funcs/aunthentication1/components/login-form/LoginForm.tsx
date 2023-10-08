@@ -10,7 +10,7 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const { login } = UseAuth();
 
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => { 
     event.preventDefault();
      login(name, email, password);
      console.log("You are successfully logged in!", name, email, password);

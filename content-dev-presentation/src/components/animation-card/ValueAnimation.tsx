@@ -29,7 +29,14 @@ const ValueAnimation = () => {
   
   return (
     <div className={styles.body}>
+      <div style={{ marginTop: "-25rem"}}>
+       <div className={styles.avatarWrapper}>
+        <img src="./assets/images/yami.jpeg" alt="Yamil Pedroso" />
+       </div>
+       <div className={styles.hi}>
         <p>👋 Hi guys, feel free to visit my content.</p>
+       </div>
+      </div>
       <div className={styles.dockWrapper}>
           <Dock>
             {GRADIENTS.map((src, index) =>

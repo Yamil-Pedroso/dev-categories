@@ -39,10 +39,11 @@ const DarkMode = () => {
                 <h1>Hello</h1>
                 {
                     theme === 'light-theme' ? <FaMoon 
-                      style={{color: '#000'}}
+                      style={{color: '#343434'}}
                       onClick={toggleTheme}
                     /> : <FaSun 
                       onClick={toggleTheme}
+                      style={{color: '#8f8f8f'}}
                     />
                 }
             </div>
@@ -53,7 +54,7 @@ const DarkMode = () => {
                         <Article
                             key={item.id}
                             title={item.title}
-                            date={item.date.toISOString()} // convert Date object to string
+                            date={item.date.toISOString()}
                             length={item.length}
                             snippet={item.snippet}
                         />

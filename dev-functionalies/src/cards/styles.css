@@ -11,3 +11,21 @@
     overflow: hidden; 
 
   }
+
+  body {
+    overflow: scroll;
+    overflow-x: hidden;
+  }
+
+  body::-webkit-scrollbar {
+    width: 5px;              
+  }
+  
+  body::-webkit-scrollbar-track {
+    background: #4c4c4c;       
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: #191919;   
+    border-radius: 20px;       
+  }
